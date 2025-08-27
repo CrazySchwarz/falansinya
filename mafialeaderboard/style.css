@@ -8,7 +8,7 @@ body {
 
 body::before {
     content: "";
-    position: fixed;
+    position: absolute; /* fixed yerine absolute */
     top: 0;
     left: 0;
     width: 100%;
@@ -17,8 +17,10 @@ body::before {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    opacity: 0.75; /* <<< işte buradan opacity kontrol sende */
-    z-index: -1; /* içeriğin altında kalsın */
+    opacity: 0.75; /* opacity kontrol sende */
+    z-index: -1; /* içeriklerin altında kalsın */
+    transform: translateZ(0); /* GPU render tetiklemek için */
+    backface-visibility: hidden; /* Samsung render sorunlarını azaltır */
 }
 
 .container {

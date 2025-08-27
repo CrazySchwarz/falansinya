@@ -10,7 +10,7 @@ body {
 
 body::before {
     content: "";
-    position: fixed;
+    position: absolute; /* fixed yerine absolute */
     top: 0;
     left: 0;
     width: 100%;
@@ -19,8 +19,10 @@ body::before {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    opacity: 0.75; /* <<< işte buradan opacity kontrol sende */
-    z-index: -1; /* içeriğin altında kalsın */
+    opacity: 0.75; /* opacity kontrol sende */
+    z-index: -1; /* içeriklerin altında kalsın */
+    transform: translateZ(0); /* GPU render tetiklemek için */
+    backface-visibility: hidden; /* Samsung render sorunlarını azaltır */
 }
 
 .container {
@@ -138,7 +140,7 @@ body {
 
 body::before {
     content: "";
-    position: fixed;
+    position: absolute; /* fixed yerine absolute */
     top: 0;
     left: 0;
     width: 100%;
@@ -147,8 +149,10 @@ body::before {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    opacity: 0.75; /* <<< işte buradan opacity kontrol sende */
-    z-index: -1; /* içeriğin altında kalsın */
+    opacity: 0.75; /* opacity kontrol sende */
+    z-index: -1; /* içeriklerin altında kalsın */
+    transform: translateZ(0); /* GPU render tetiklemek için */
+    backface-visibility: hidden; /* Samsung render sorunlarını azaltır */
 }
 
 .container {
@@ -182,8 +186,9 @@ body::before {
 .raw {
     position: absolute;
     left: 50%;
-    top: 315px;
+    top: 335px;
     transform: translate(-50%, -50%);
+    height: 30px;
 }
 
 .leaderboardtext {
@@ -234,11 +239,11 @@ body::before {
     position: absolute;
     color: white;
     font-family: 'Nunito', sans-serif;
-    font-size: 10px;
+    font-size: 7px;
     top: 455px;
     left: 50%;
     transform: translate(-50%, -50%);
-    opacity: 0.35;
+    opacity: 0.85;
 }
 
 
