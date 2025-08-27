@@ -4,13 +4,6 @@ body {
     margin: 0;
     position: relative;
     min-height: 100vh;
-    /* Samsung tarayıcıları için hardware acceleration */
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    -webkit-perspective: 1000;
-    perspective: 1000;
 }
 
 body::before {
@@ -24,17 +17,10 @@ body::before {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    opacity: 0.75;
-    z-index: -1;
-    /* Samsung tarayıcıları için performans iyileştirmeleri */
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-    will-change: transform;
-    /* Gradient overlay ile opacity sorunlarını azalt */
-    background-blend-mode: overlay;
+    opacity: 0.75; /* <<< işte buradan opacity kontrol sende */
+    z-index: -1; /* içeriğin altında kalsın */
 }
+
 .container {
     position: relative;
     margin-left: 0px;   /* dıştan soldan boşluk */
@@ -127,4 +113,16 @@ body::before {
     left: 50%;
     transform: translate(-50%, -50%);
     opacity: 0.35;
+}
+
+.bottomlbthing {
+    position: relative;
+    width: 800px;
+    height: 1px;
+    top: 570px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* Gradient ile ortadan ince, kenarlara doğru genişleyen görünüm */
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.548), transparent);
+    
 }
