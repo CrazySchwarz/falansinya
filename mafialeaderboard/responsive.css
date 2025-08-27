@@ -6,11 +6,18 @@ body {
     margin: 0;
     position: relative;
     min-height: 100vh;
+    /* Samsung tarayıcıları için hardware acceleration */
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-perspective: 1000;
+    perspective: 1000;
 }
 
 body::before {
     content: "";
-    position: absolute; /* fixed yerine absolute */
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -19,12 +26,17 @@ body::before {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    opacity: 0.75; /* opacity kontrol sende */
-    z-index: -1; /* içeriklerin altında kalsın */
-    transform: translateZ(0); /* GPU render tetiklemek için */
-    backface-visibility: hidden; /* Samsung render sorunlarını azaltır */
+    opacity: 0.75;
+    z-index: -1;
+    /* Samsung tarayıcıları için performans iyileştirmeleri */
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    will-change: transform;
+    /* Gradient overlay ile opacity sorunlarını azalt */
+    background-blend-mode: overlay;
 }
-
 .container {
     position: relative;
     margin-left: 0px;   /* dıştan soldan boşluk */
@@ -136,11 +148,18 @@ body {
     margin: 0;
     position: relative;
     min-height: 100vh;
+    /* Samsung tarayıcıları için hardware acceleration */
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-perspective: 1000;
+    perspective: 1000;
 }
 
 body::before {
     content: "";
-    position: absolute; /* fixed yerine absolute */
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -149,12 +168,17 @@ body::before {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    opacity: 0.75; /* opacity kontrol sende */
-    z-index: -1; /* içeriklerin altında kalsın */
-    transform: translateZ(0); /* GPU render tetiklemek için */
-    backface-visibility: hidden; /* Samsung render sorunlarını azaltır */
+    opacity: 0.75;
+    z-index: -1;
+    /* Samsung tarayıcıları için performans iyileştirmeleri */
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    will-change: transform;
+    /* Gradient overlay ile opacity sorunlarını azalt */
+    background-blend-mode: overlay;
 }
-
 .container {
     position: relative;
     margin-left: 0px;   /* dıştan soldan boşluk */
